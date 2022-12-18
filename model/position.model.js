@@ -10,6 +10,12 @@ const patientsSchema = new Schema({
     type: Number,
     required: true,
   },
+  reception_time: {
+    type: Date,
+  },
+  description: {
+    type: String,
+  },
 });
 
 // hospital scema
