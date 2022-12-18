@@ -31,6 +31,6 @@ app.use(async (req, res, next) => {
 
 app.use("/reception", require("./router/reception.router"));
 
-app.listen(3000, () => {
+app.listen(process.env.PORT||3000, () => {
   console.log("Server started on port 3000");
 });
