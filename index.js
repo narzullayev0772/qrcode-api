@@ -4,8 +4,10 @@ const app = express();
 require("./database");
 const { verifyToken } = require("./util/token.util");
 const User = require("./model/user.model");
+const cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/auth", require("./router/auth.router"));
 
@@ -31,6 +33,6 @@ app.use(async (req, res, next) => {
 
 app.use("/reception", require("./router/reception.router"));
 
-app.listen(process.env.PORT||3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("Server started on port 3000");
 });
