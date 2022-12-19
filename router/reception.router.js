@@ -44,7 +44,7 @@ Router.get("/", async (req, res) => {
         .json({ message: "Siz ro'yxatdan o'tmadingiz", data: {} });
     }
     const img = await qrCodeCreator(
-      `Bemor: ${currentPatient.user.name}\n Index: ${currentPatient.index}`
+      `Bemor: ${currentPatient.user.name}\nIndex: ${currentPatient.index}\nKassalik haqida ma'lumot: ${currentPatient.description}\nQabul vaqti: ${currentPatient.reception_time}`
     );
     res.status(201).json({
       data: { user: currentPatient, img },
@@ -88,7 +88,7 @@ Router.post("/register", async (req, res) => {
     hospital.patients.push(currentPatient);
     await hospital.save();
     const img = await qrCodeCreator(
-      `Bemor: ${currentPatient.user.name}\n Index: ${currentPatient.index}`
+      `Bemor: ${currentPatient.user.name}\nIndex: ${currentPatient.index}\nKassalik haqida ma'lumot: ${currentPatient.description}\nQabul vaqti: ${currentPatient.reception_time}`
     );
     res.status(201).json({
       message: "Siz qabulga yozildingiz",
